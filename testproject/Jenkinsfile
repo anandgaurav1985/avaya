@@ -1,28 +1,54 @@
-pipeline {
-    agent any
-						  
-						  
-	  stages {
-	        stage('Build') {
-	               steps {
-	                sh 'mvn clean package'
-				           }
-				           }
-             stage('Test') {
-	              steps {
-	               sh 'mvn test'
-	         }
-																			                post {
-																				                always {
-																				                    junit 'target/surefire-reports/*.xml'
-																				                    }
-																							                }
-																								        }
-																								        stage('Deliver') { 
-																									            steps {
-																																sh 'echo "war deployed"'
-																														                }
-																																        }
-																																    }
-																																    }
+pipeline{
+    
+      agent any
+          
+	  	stages{
+					stage(SCM Checkout){
+								steps{
+												checkout([$class: 'GitSCM', branches: [[name: '*/master']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[credentialsId: '338d5d37-7bd5-4892-ae7a-59cf576572c1', url: 'https://github.com/anandgaurav1985/avaya.git']]])
+
+															}
+
+																	}
+		        
+					stage(build){
+					       	   
+						     			steps {
+									  
+									  		              sh ' echo "Running build"'
+												          
+													  		        }
+																  
+																  	        }
+																		    
+
+																		    	        stage(test){
+																				          
+																					    			steps{
+																								            
+																									    			      sh 'echo "Running test "'
+																												         
+																													 	                }
+																																        
+																																	        }
+																																		      
+																																		        	      
+																																				                      stage(Deploy){
+																																						                  
+																																								              steps{
+																																									       
+																																									                                     sh 'echo "Running Deploy"'
+																																													        
+																																														                        }
+																																																	  
+																																																	                  }
+																																																			    
+
+
+																																																			            }
+																																																				           
+																																																					   }
+																																																					       
+																																																					           
+																																																						       
 
