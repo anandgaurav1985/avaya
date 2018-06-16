@@ -6,7 +6,7 @@ pipeline{
 		        
 																		    
 
-    	        stage(static code sonarqube analysis){
+    	        stage( code sonarqube analysis){
 																				          
 																					    			steps{
 																								            
@@ -15,8 +15,8 @@ pipeline{
 																												         
 																													 	                }
 																																        
-																																	        }
-	 																							stage(build){
+																																        }
+																						stage(build){
 
 															                                                                        steps {
 
