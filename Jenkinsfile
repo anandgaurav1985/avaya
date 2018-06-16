@@ -3,7 +3,7 @@ pipeline{
       agent any
           
   	stages{
-		       stage(test){
+		       stage(sonarqubequalitycheck){
 		              steps{
 			                sh 'echo "Running sonar web "'
 
