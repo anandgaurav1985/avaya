@@ -8,7 +8,7 @@ pipeline{
 					       	   
 						     			steps {
 									  
-									  		      sh 'mvn clean package' 
+									  		      sh '/home/ec2-user/apache-maven-3.5.3/bin/mvn clean package' 
 												          
 													  		        }
 																  
