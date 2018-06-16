@@ -17,7 +17,7 @@ pipeline{
 																																																		                                                                                                                                                      }
 
 																																		      
-																																		                      stage( code sonarqube analysis){
+																																		                      stage(test){
 
 
 																																				                       steps{
